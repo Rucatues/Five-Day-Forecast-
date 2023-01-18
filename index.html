@@ -12,21 +12,67 @@
     <title>Five Day Weather Forecast</title>
 </head>
 <body class="body">
+<header>
+    <div class="row header">
+        <p>My Weather Forecast</p> 
+    </div>
+</header>
+
+<!-- Cloud with search bar -->
+
 <div class="cloudSearch">
       <div class="cloud">
         <div class="topnav">
-        <input type="text" class="search" placeholder="Search for city...">
+        <input type="text" class="search" placeholder="Type city here...">
     </div>
       </div>
 </div>
-<div class="container">
-      <div class="currentWeather col-4">
 
-      </div>
+<!-- Div for current weather -->
+
+<div class="container currentContainer">
+    <div class="row">
+        <div class="currentWeather col-6">
+            <div class="row">
+            <div id="currentCity" class="col-12">City Name</div>
+            </div>
+            
+            <div class="row">
+            <div id="currentDay" class="col-12">Date with Day.js</div>
+            </div>
+
+            <div class="row">
+                <div id="currentIcon" class="col-12">ICON</div>
+            </div>
+
+            <div class="row">
+                <div id="currentTemp" class="col-12">Temp<span>&#176F</span></div>
+            </div>
+
+            <div class="row">
+             <div id="currentHumidity" class="col-12">Humidity</div>
+            </div>
+            
+            <div class="row">
+            <div id="currentWind" class="col-12">Windy</div>
+            </div>
+        </div>
     </div>
+</div>
+
+<!-- Div for row of 5 day forecast cards -->
+
     <div class="container">
 <div class="row forecastRow">
-      <div class="forecast col-2"></div>
+      <div class="forecast col-2">
+        <div class="card-body">
+            <h5 class="card-title fiveDate">o</h5>
+            <h5 class="card-title fiveicon">o</h5>
+            <h5 class="card-title fiveTemp">o</h5>
+            <h5 class="card-title fiveHumidity">o</h5>
+            <h5 class="card-title fiveWind">o</h5>
+        </div>
+      </div>
       <div class="forecast col-2"></div>
       <div class="forecast col-2"></div>
       <div class="forecast col-2"></div>
@@ -34,9 +80,9 @@
     </div>
 </div>
 
-<div class="container">
+<div class="container popup">
             <div class="row recentSearchList">
-                <div class="col-12">
+                <div class="col-12 test">
                 <h3>Recent Searches:</h3>
                 <ol>
                     <li></li>
@@ -49,7 +95,8 @@
 </div>
 
     <footer>
-      <div class="footer"></div>
+        <div class="row footer">
+        </div>
     </footer>
     <script type="text/javascript" src="./assets/script.js"></script>  
 
