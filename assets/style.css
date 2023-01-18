@@ -3,8 +3,9 @@
     font-family: 'Nunito', sans-serif;
   }
 
-  .hide{
-    display: none;   
+  .cloudSearch{
+    padding-top: 0px; 
+    padding-bottom: 20px; 
   }
   .cloud {
     display: flex; 
@@ -67,11 +68,15 @@
   }
 
   .currentWeather{
-    height: 200px; 
+    height: 300px; 
     margin: auto; 
     background-color: #4383b0; 
     opacity: 60%;  
     border-radius: 25px; 
+  }
+
+  .forecastRow{
+    padding: 50px; 
   }
 
   .forecast{
@@ -82,11 +87,25 @@
     border-radius: 5%; 
   }
 
-  .recentSearches{
-    background-color: #254962
+  .recentSearchList{
+    width: 300px; 
     margin: auto; 
+    align-items: center; 
+    background-color: #4383b0; 
+    border-radius: 5px; 
   }
-  /* how do I get space between each section? */
-  /* add bootstrap responsiveness for mobile */
+
+  .recentSearchList h3, ol{
+    color: white; 
+    font-size: 15px; 
+    text-align: center; 
+    padding: 10px; 
+  }
+
+
+  .hide{
+    visibility: hidden;   
+  }
+  /* add bootstrap responsiveness for mobile?? */
 
 
