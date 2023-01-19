@@ -8,16 +8,16 @@
     padding-top: 10px; 
     padding-left: 15px; 
     height: 20px; 
-    background-color: #4383b0; 
+    background-color: #5fafe8; 
     font-family: 'Fredoka One', cursive;
   }
 
-  /* .header p{
+  .header p{
     font-size: 40px;
     padding-top: 15px;  
     color: white; 
     /* text-shadow: 1px 1px 2px #4383b0; */
-  } */
+  }
 
   .cloudSearch{
     padding-bottom: 10px; 
@@ -88,34 +88,37 @@
     width: 200px; 
   }
   #currentCity{
+    font-family: 'Fredoka One', cursive;
     text-align: center; 
     color: white; 
     font-size: 30px; 
   }
 
   #currentDay{
+    font-family: 'Fredoka One', cursive;
     text-align: center; 
     color: white; 
   }
 
 #currentIcon{
     padding: 20px; 
-    height: 50px; 
+    height: 80px; 
     text-align: center; 
 }
 
 #currentTemp, #currentHumidity, #currentWind{
     color: white; 
     text-align: left; 
+    padding-left: 20px; 
 }
 
   .currentWeather{
     height: 250px; 
     padding: 5px; 
     margin: auto; 
-    background-color: #f64b2d; 
+    background-color: #2c8cf3; 
     border-radius: 25px; 
-    box-shadow: 10px 10px #872918;
+    box-shadow: 10px 10px #133b65;
   }
 
   .forecastRow{
@@ -132,18 +135,20 @@
   }
 
   .card-body h5{
+    font-family: 'Fredoka One', cursive;
     padding-top: 10px; 
     font-size: 20px; 
     color: white; 
     text-align: left; 
   }
   .card-body div{
-    height: 50px; 
+    height: 80px; 
     text-align: center;
   }
 
   .card-body p{
     text-align: left; 
+    padding-left: 10px; 
     color: white; 
     font-size: 15px; 
   }
@@ -154,9 +159,9 @@
   .recentSearchList{ 
     margin: auto; 
     align-items: center; 
-    background-color: #ff7626; 
+    background-color: #f64b2d; 
     border-radius: 5px; 
-    box-shadow: 10px 10px #aa4f1a;
+    box-shadow: 10px 10px #872918; 
   }
 
   .recentSearchList h3, ol{
@@ -168,7 +173,7 @@
 
   .footer{
     height: 20px; 
-    background-color: #4383b0; 
+    background-color: #5fafe8; 
   }
 
   .hide{
