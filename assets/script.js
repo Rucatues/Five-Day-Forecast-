@@ -36,7 +36,8 @@ $(document).ready(function () {
             .then(function (data) {
                 console.log(data);
                 $('#currentCity').text(data.name);
-                // $('#currentIcon').prepend("<img src='http://openweathermap.org/img/wn/' + data.weather.0.icon + '@2x.png />');
+                let iconURL = 'http://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png'
+                $('#currentIcon').attr('src', iconURL);
                 $('#currentTemp').text('Temp: ' + data.main.temp);
                 $('#currentHumidity').text('Humidity: ' + data.main.humidity);
                 $('#currentWind').text('Wind speed: ' + data.wind.speed);
