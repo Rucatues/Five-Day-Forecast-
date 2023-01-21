@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="./assets/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Noto+Sans+JP&display=swap" rel="stylesheet">
@@ -23,7 +24,7 @@
 <div class="cloudSearch">
       <div class="cloud">
         <div class="topnav">
-        <input type="text" class="search" placeholder="Type city here and press enter...">
+        <input type="text" class="search" id=input placeholder="Type city here and press enter...">
     </div>
       </div>
 </div>
@@ -72,14 +73,14 @@
     <!-- card #1 -->
       <div class="forecast col-2">
         <div class="card-body">
-            <h5 class="card-title fiveDate">5/4</h5>
-            <div class="card-title fiveicon"></div>
-            <p class="card-title fiveTemp">Temp</p>
-            <p class="card-title fiveHumidity">Humidity</p>
-            <p class="card-title fiveWind">Wind</p>
+            <h5 class="card-title fiveDate">test</h5>
+            <img class="card-title fiveIcon">test</img>
+            <p class="card-title fiveTemp">test</p>
+            <p class="card-title fiveHumidity">test</p>
+            <p class="card-title fiveWind">test</p>
         </div>
       </div>
-      <!-- card #2 -->
+<!--     
       <div class="forecast col-2">
         <div class="card-body">
             <h5 class="card-title fiveDate">5/4</h5>
@@ -89,7 +90,7 @@
             <p class="card-title fiveWind">Wind</p>
         </div>
       </div>
-      <!-- card #3 -->
+   
       <div class="forecast col-2">
         <div class="card-body">
             <h5 class="card-title fiveDate">5/4</h5>
@@ -99,7 +100,7 @@
             <p class="card-title fiveWind">Wind</p>
         </div>
     </div>
-    <!-- card #4 -->
+    
       <div class="forecast col-2">
         <div class="card-body">
             <h5 class="card-title fiveDate">5/4</h5>
@@ -109,7 +110,7 @@
             <p class="card-title fiveWind">Wind</p>
         </div>
       </div>
-      <!-- card #5 -->
+      
       <div class="forecast col-2">
         <div class="card-body">
             <h5 class="card-title fiveDate">5/4</h5>
@@ -118,11 +119,11 @@
             <p class="card-title fiveHumidity">Humidity</p>
             <p class="card-title fiveWind">Wind</p>
         </div>
-      </div>
+      </div>  -->
     </div>
 </div>
 
-<div class="container popup">
+<div class="container popup hide">
             <div class="row">
                 <div class="col-4 recentSearchList">
                 <h3>Recent Searches</h3>
@@ -130,7 +131,7 @@
         </div>
     </div>
 
-    <div class="container popup">
+    <div class="container popup hide">
         <div class="row">
             <div class="col-4 additionToList">
             <h3>1. </h3>

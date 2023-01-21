@@ -17,6 +17,10 @@ $(document).ready(function () {
             $('#currentDay').text(dayjs().format('MMMM D, YYYY'))
             getAPI(userInput);
             getCoordinates(userInput);
+
+
+            // getFiveDayForecast(userInput);
+            // displayForecastData(userInput);
         }
     });
 
@@ -29,6 +33,9 @@ $(document).ready(function () {
             .then(function (data) {
                 console.log(data);
                 $('#currentCity').text(data.name);
+                $('#currentTemp').text('Temp: ' + data.main.temp);
+                $('#currentHumidity').text('Humidity: ' + data.main.humidity);
+                $('#currentWind').text('Wind speed: ' + data.wind.speed);
             })
     };
 
@@ -56,14 +63,42 @@ $(document).ready(function () {
 
     function displayForecastData(data2) {
         for (let i = 4; i < data2.length; i = i + 8) {
-            // console.log(data2[i]);
-            let cardCol = document.createElement("div").classList.add('forecast', 'col-2');
-            let cardBody = document.createElement("div").classList.add('card-body');
+            console.log(data2[i]);
+
+            let cardCol = document.createElement("div")
+            cardCol.classList.add('forecast', 'col-2');
+            let cardBody = document.createElement("div")
+            cardBody.classList.add('card-body');
             let cardHeader = document.createElement("h5")
             cardHeader.classList.add('card-title', 'fiveDate')
+            let cardIcon = document.createElement("img");
+            cardIcon.classList.add('card-title', 'fiveIcon');
+            let cardTemp = document.createElement("p");
+            cardTemp.classList.add('card-title', 'fiveTemp');
+            let cardHumidity = document.createElement("p");
+            cardHumidity.classList.add('card-title', 'fiveHumidity');
+            let cardWind = document.createElement("p");
+            cardWind.classList.add('card-title', 'fiveWind');
+
+
             let date = data2[i].dt_txt.split(" ")[0];
             console.log(date)
             cardHeader.innerHTML = data2[i].dt_txt.split(" ")[0];
+
+            // how to get icons? 
+
+            let temp = Math.floor(data2[i].main.temp);
+            console.log(temp)
+            cardTemp.innerHTML = 'Temp=' + temp + '&#xB0;' + 'F';
+
+            let humidity = data2[i].main.humidity;
+            console.log(humidity);
+            cardHumidity.innerHTML = 'Humidity=' + humidity;
+
+            let wind = data2[i].wind.speed;
+            console.log(wind);
+            cardWind.innerHTML = 'Wind speed=' + wind;
+
         }
     }
 });
