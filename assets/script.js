@@ -18,6 +18,9 @@ $(document).ready(function () {
             getAPI(userInput);
             getCoordinates(userInput);
 
+            $('.currentContainer').removeClass('hide');
+            $('.forecastRow').removeClass('hide');
+            $('.popup').removeClass('hide')
 
             // getFiveDayForecast(userInput);
             // displayForecastData(userInput);
