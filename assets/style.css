@@ -101,10 +101,12 @@
     color: white; 
   }
 
-#currentIcon{
-    padding: 20px; 
-    height: 80px; 
-    width: 80px; 
+#centerIcon{
+  justify-content: center; 
+}
+#currentIcon{ 
+    height: 90px; 
+    width: 100px; 
     text-align: center; 
 }
 
