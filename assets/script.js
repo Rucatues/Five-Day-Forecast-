@@ -36,14 +36,15 @@ $(document).ready(function () {
             .then(function (data) {
                 console.log(data);
                 $('#currentCity').text(data.name);
+                // $('#currentIcon').prepend("<img src='http://openweathermap.org/img/wn/' + data.weather.0.icon + '@2x.png />');
                 $('#currentTemp').text('Temp: ' + data.main.temp);
                 $('#currentHumidity').text('Humidity: ' + data.main.humidity);
                 $('#currentWind').text('Wind speed: ' + data.wind.speed);
+
             })
     };
-
     function getCoordinates(cityName) {
-        fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${apiKey}`)
+        fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${apiKey}&units=imperial`)
             .then(function (response) {
                 return response.json();
             })
@@ -54,7 +55,7 @@ $(document).ready(function () {
     };
 
     function getFiveDayForecast(lat, lon) {
-        fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`)
+        fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`)
             .then(function (response) {
                 return response.json();
             })
