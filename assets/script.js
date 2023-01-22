@@ -22,9 +22,6 @@ $(document).ready(function () {
             $('.forecastRow').removeClass('hide');
             $('.popup').removeClass('hide')
 
-            // getFiveDayForecast(userInput);
-            // displayForecastData(userInput);
-
         }
     });
 
@@ -70,7 +67,7 @@ $(document).ready(function () {
         for (let i = 4; i < data2.length; i = i + 8) {
             console.log(data2[i]);
 
-
+            // creating each card in the loop and appending
             let cardCol = document.createElement("div")
             cardCol.classList.add('forecast', 'col-2');
             document.querySelector('.forecastRow').appendChild(cardCol);
@@ -80,36 +77,47 @@ $(document).ready(function () {
             cardCol.appendChild(cardBody);
 
             let cardHeader = document.createElement("h5")
-            cardHeader.classList.add('card-title', 'fiveDate')
+            cardHeader.classList.add('card-title');
+            cardHeader.classList.add('fiveDate');
             cardBody.appendChild(cardHeader);
 
             let cardIcon = document.createElement("img");
-            cardIcon.classList.add('card-title', 'fiveIcon');
+            cardIcon.classList.add('card-title');
+            cardIcon.classList.add('fiveIcon');
+            cardBody.appendChild(cardIcon);
+
             let cardTemp = document.createElement("p");
             cardTemp.classList.add('card-title', 'fiveTemp');
+            cardBody.appendChild(cardTemp);
+
             let cardHumidity = document.createElement("p");
             cardHumidity.classList.add('card-title', 'fiveHumidity');
+            cardBody.appendChild(cardHumidity);
+
             let cardWind = document.createElement("p");
             cardWind.classList.add('card-title', 'fiveWind');
+            cardBody.appendChild(cardWind);
 
-
+            // grabbing data and inserting into elements
             let date = data2[i].dt_txt.split(" ")[0];
             console.log(date)
             cardHeader.innerHTML = data2[i].dt_txt.split(" ")[0];
 
-            // how to get icons? 
+            console.log(data2[i].weather[0].icon)
+            let iconURL = 'http://openweathermap.org/img/wn/' + data2[i].weather[0].icon + '@2x.png'
+            $('.fiveIcon').attr('src', iconURL);
 
             let temp = Math.floor(data2[i].main.temp);
             console.log(temp)
-            cardTemp.innerHTML = 'Temp=' + temp + '&#xB0;' + 'F';
+            cardTemp.innerHTML = 'Temp:' + temp + '&#xB0;' + 'F';
 
             let humidity = data2[i].main.humidity;
             console.log(humidity);
-            cardHumidity.innerHTML = 'Humidity=' + humidity;
+            cardHumidity.innerHTML = 'Humidity:' + humidity;
 
             let wind = data2[i].wind.speed;
             console.log(wind);
-            cardWind.innerHTML = 'Wind speed=' + wind;
+            cardWind.innerHTML = 'Wind speed:' + wind;
 
         }
     }

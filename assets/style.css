@@ -147,7 +147,6 @@
   }
   .card-body img{
     height: 80px; 
-    text-align: center;
   }
 
   .card-body p{
@@ -156,6 +155,7 @@
     color: white; 
     font-size: 15px; 
   }
+
   .popup{
     padding-bottom: 20px; 
     margin: auto; 
