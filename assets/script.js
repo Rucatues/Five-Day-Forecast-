@@ -24,6 +24,7 @@ $(document).ready(function () {
 
             // getFiveDayForecast(userInput);
             // displayForecastData(userInput);
+
         }
     });
 
@@ -40,8 +41,7 @@ $(document).ready(function () {
                 $('#currentIcon').attr('src', iconURL);
                 $('#currentTemp').text('Temp: ' + data.main.temp);
                 $('#currentHumidity').text('Humidity: ' + data.main.humidity);
-                $('#currentWind').text('Wind speed: ' + data.wind.speed);
-
+                $('#currentWind').text('Wind speed: ' + data.wind.speed)
             })
     };
     function getCoordinates(cityName) {
@@ -70,12 +70,19 @@ $(document).ready(function () {
         for (let i = 4; i < data2.length; i = i + 8) {
             console.log(data2[i]);
 
+
             let cardCol = document.createElement("div")
             cardCol.classList.add('forecast', 'col-2');
+            document.querySelector('.forecastRow').appendChild(cardCol);
+
             let cardBody = document.createElement("div")
             cardBody.classList.add('card-body');
+            cardCol.appendChild(cardBody);
+
             let cardHeader = document.createElement("h5")
             cardHeader.classList.add('card-title', 'fiveDate')
+            cardBody.appendChild(cardHeader);
+
             let cardIcon = document.createElement("img");
             cardIcon.classList.add('card-title', 'fiveIcon');
             let cardTemp = document.createElement("p");
