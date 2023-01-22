@@ -101,7 +101,9 @@ $(document).ready(function () {
             // grabbing data and inserting into elements
             let date = data2[i].dt_txt.split(" ")[0];
             console.log(date)
-            cardHeader.innerHTML = date;
+            let newDate = new Date(date);
+            let newestDate = dayjs(newDate).format('MM-DD-YY');
+            cardHeader.innerHTML = newestDate;
 
             console.log(data2[i].weather[0].icon)
             let iconURL = 'http://openweathermap.org/img/wn/' + data2[i].weather[0].icon + '@2x.png'
