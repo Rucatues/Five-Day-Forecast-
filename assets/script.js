@@ -102,7 +102,7 @@ $(document).ready(function () {
             let date = data2[i].dt_txt.split(" ")[0];
             console.log(date)
             let newDate = new Date(date);
-            let newestDate = dayjs(newDate).format('MM-DD-YY');
+            let newestDate = dayjs(newDate).format('MMM D, YYYY');
             cardHeader.innerHTML = newestDate;
 
             console.log(data2[i].weather[0].icon)
@@ -111,15 +111,15 @@ $(document).ready(function () {
 
             let temp = Math.floor(data2[i].main.temp);
             console.log(temp)
-            cardTemp.innerHTML = 'Temp:' + temp + '&#xB0;' + 'F';
+            cardTemp.innerHTML = 'Temp: ' + temp + '&#xB0;' + 'F';
 
             let humidity = data2[i].main.humidity;
             console.log(humidity);
-            cardHumidity.innerHTML = 'Humidity:' + humidity;
+            cardHumidity.innerHTML = 'Humidity: ' + humidity;
 
             let wind = data2[i].wind.speed;
             console.log(wind);
-            cardWind.innerHTML = 'Wind speed:' + wind;
+            cardWind.innerHTML = 'Wind speed: ' + wind;
 
         }
     }
