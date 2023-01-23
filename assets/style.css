@@ -22,9 +22,10 @@
   .cloudSearch{
     padding-bottom: 10px; 
   }
+
   .cloud {
     display: flex; 
-	width: 350px; 
+	  width: 350px; 
     height: 120px;
 	
 	background: white;
@@ -195,10 +196,10 @@
     background-color: #dc9e0d; 
   }
 
-  .footer{
+  /* .footer{
     height: 20px; 
     background-color: #5fafe8; 
-  }
+  } */
 
   .hide{
     visibility: hidden;   
