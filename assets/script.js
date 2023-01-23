@@ -5,9 +5,11 @@ $(document).ready(function () {
     let apiKey = "f47243749ce7ae2a156aab05280e5983";
 
     let searchHistory = []
+    let storageArray = JSON.parse(localStorage.getItem('city'))
+    if (searchHistory !== null) {
+        searchHistory = storageArray;
+    }
 
-    // Sets current date for current weather block
-    // $('#currentDay').text(dayjs().format('MMMM D, YYYY'));
 
     // this is what happens when you press enter on the page
     $(document).keypress(function (event) {
@@ -19,6 +21,7 @@ $(document).ready(function () {
 
             $('.currentContainer').removeClass('hide');
             $('.forecastRow').removeClass('hide');
+            $('.popup').removeClass('hide');
 
         }
     });
@@ -131,30 +134,29 @@ $(document).ready(function () {
         searchHistory.push(userObj);
         console.log(searchHistory);
         localStorage.setItem('city', JSON.stringify(searchHistory))
-        // displayResults(data);
+        displayResults(data);
     }
 
-    // function displayResults(data) {
-    //     for (let i = 0; i < searchHistory.length; i++) {
-    //         console.log(searchHistory[i]);
+    function displayResults(data) {
+        for (let i = 0; i < 5; i++) {
+            console.log(searchHistory[i]);
 
-    //         let popupMain = $('#popupMain')
-    //         let listDiv = document.createElement('div');
-    //         listDiv.classList.add('container', 'popup')
-    //         popupMain.appendChild(listDiv);
+            let popupMain = document.getElementById('popupMain')
+            let listDiv = document.createElement('div');
+            listDiv.classList.add('container', 'popup')
+            popupMain.appendChild(listDiv);
 
-    //         let listRow = document.createElement('div');
-    //         listRow.classList.add('row');
-    //         listDiv.appendChild(listRow);
+            let listRow = document.createElement('div');
+            listRow.classList.add('row');
+            listDiv.appendChild(listRow);
 
-    //         let listColumn = document.createElement('div');
-    //         listColumn.classList.add('col-4', 'additionToList');
-    //         listRow.appendChild(listColumn);
+            let listColumn = document.createElement('div');
+            listColumn.classList.add('col-4', 'additionToList');
+            listRow.appendChild(listColumn);
 
-    //         let listHeader = document.createElement('h3');
-    //         listColumn.appendChild(listHeader);
-    //         listHeader.innerHTML('test')
-
-
-    //     }
+            let listHeader = document.createElement('h3');
+            listColumn.appendChild(listHeader);
+            listHeader.innerHTML = searchHistory[i]
+        }
+    };
 });
