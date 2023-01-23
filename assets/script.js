@@ -33,7 +33,7 @@ $(document).ready(function () {
 
                 let code = data.cod
                 if (code !== 200) {
-                    window.alert('You must enter a city name')
+                    window.alert('You must enter a valid city name. Do not include state.')
                 } else {
                     $('#currentCity').text(data.name);
                     let iconURL = 'http://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png'
