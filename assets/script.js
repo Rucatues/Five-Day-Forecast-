@@ -19,10 +19,6 @@ $(document).ready(function () {
             getAPI(userInput);
             getCoordinates(userInput);
 
-            $('.currentContainer').removeClass('hide');
-            $('.forecastRow').removeClass('hide');
-            $('.popup').removeClass('hide');
-
         }
     });
 
@@ -34,13 +30,24 @@ $(document).ready(function () {
             })
             .then(function (data) {
                 console.log(data);
-                $('#currentCity').text(data.name);
-                let iconURL = 'http://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png'
-                $('#currentIcon').attr('src', iconURL);
-                $('#currentTemp').text('Temp: ' + data.main.temp);
-                $('#currentHumidity').text('Humidity: ' + data.main.humidity);
-                $('#currentWind').text('Wind speed: ' + data.wind.speed)
-                setLocalStorage();
+
+                let code = data.cod
+                if (code !== 200) {
+                    window.alert('You must enter a city name')
+                } else {
+                    $('#currentCity').text(data.name);
+                    let iconURL = 'http://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png'
+                    $('#currentIcon').attr('src', iconURL);
+                    $('#currentTemp').text('Temp: ' + data.main.temp);
+                    $('#currentHumidity').text('Humidity: ' + data.main.humidity);
+                    $('#currentWind').text('Wind speed: ' + data.wind.speed)
+
+                    $('.currentContainer').removeClass('hide');
+                    $('.forecastRow').removeClass('hide');
+                    $('.popup').removeClass('hide');
+
+                    setLocalStorage();
+                }
             })
     };
     function getCoordinates(cityName) {
@@ -159,4 +166,10 @@ $(document).ready(function () {
             listHeader.innerHTML = searchHistory[i]
         }
     };
+
+    // function clickOnHistory() {
+    //     $('.additionToList').click(function() {
+    //         getAPI()
+    //     })
+    // }
 });
