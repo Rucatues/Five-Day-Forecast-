@@ -156,7 +156,6 @@ $(document).ready(function () {
             for (i = 0; i < searchHistory.length; i++) {
                 if (searchHistory[i].city == userCity) {
                     console.log('City already here');
-                    console.log(searchHistory[i].city)
                 }
                 else {
                     console.log('working loop')
@@ -188,13 +187,11 @@ $(document).ready(function () {
 
             let listHeader = document.createElement('h3');
             listColumn.appendChild(listHeader);
-            listHeader.innerHTML = searchHistory[i].city;
+            listHeader.innerHTML = searchHistory[i].city.toUpperCase();
         }
     };
 
     function resetForecast() {
         $('.forecastRow').html('');
     }
-
-    console.log(storageArray);
 });
