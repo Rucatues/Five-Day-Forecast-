@@ -202,7 +202,6 @@ $(document).ready(function () {
         resetForecast();
         getAPI(this.innerHTML);
         getCoordinates(this.innerHTML);
-        userInput.innerHTML = '';
     }
 
 });
