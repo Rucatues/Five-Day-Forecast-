@@ -144,7 +144,7 @@ $(document).ready(function () {
     //creates an object with the city name and pushes it into an array called Search History, which we then set in local storage. 
     function setLocalStorage(data) {
         let userCity = $('#input').val();
-        const userObj = {
+        let userObj = {
             city: userCity
         }
 
@@ -152,17 +152,18 @@ $(document).ready(function () {
             searchHistory = [];
             searchHistory.push(userObj);
             localStorage.setItem('city', JSON.stringify(searchHistory));
+
         } else {
             for (i = 0; i < searchHistory.length; i++) {
                 if (searchHistory[i].city == userCity) {
                     console.log('City already here');
+                    displayResults();
+
                 }
                 else {
-                    console.log('working loop')
-                    console.log(searchHistory);
                     localStorage.setItem('city', JSON.stringify(searchHistory));
                     searchHistory.push(userObj);
-                    displayResults();
+
                 }
             }
         }
@@ -194,4 +195,6 @@ $(document).ready(function () {
     function resetForecast() {
         $('.forecastRow').html('');
     }
+
+
 });
