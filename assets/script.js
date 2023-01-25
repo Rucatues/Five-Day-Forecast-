@@ -189,6 +189,7 @@ $(document).ready(function () {
             let listHeader = document.createElement('h3');
             listColumn.appendChild(listHeader);
             listHeader.innerHTML = searchHistory[i].city.toUpperCase();
+            listHeader.addEventListener('click', clickSearchHistory);
         }
     };
 
@@ -196,5 +197,11 @@ $(document).ready(function () {
         $('.forecastRow').html('');
     }
 
+    //function runs when you click on a city you've previously searched for in search history
+    function clickSearchHistory() {
+        resetForecast();
+        getAPI(this.innerHTML);
+        getCoordinates(this.innerHTML);
+    }
 
 });
