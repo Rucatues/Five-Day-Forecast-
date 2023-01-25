@@ -12,6 +12,7 @@ $(document).ready(function () {
     }
 
     console.log(parsedItem);
+    console.log(searchHistory)
     console.log(storageArray);
 
 
@@ -143,29 +144,28 @@ $(document).ready(function () {
         const userObj = {
             city: userCity
         }
+
         if (!searchHistory) {
-            console.log(searchHistory);
             searchHistory = [];
             searchHistory.push(userObj);
-            localStorage.setItem('city', JSON.stringify(searchHistory))
+            localStorage.setItem('city', JSON.stringify(searchHistory));
         } else {
             for (i = 0; i < searchHistory.length; i++) {
                 if (searchHistory[i].city == userCity) {
-                    return;
+                    console.log('City already here');
                 }
                 else {
                     console.log('working loop')
                     console.log(searchHistory);
                     searchHistory.push(userObj);
                     localStorage.setItem('city', JSON.stringify(searchHistory));
-                    displayResults(data);
+                    displayResults();
                 }
-
             }
         }
     }
 
-    function displayResults(data) {
+    function displayResults() {
         for (let i = 0; i < searchHistory.length; i++) {
             console.log(searchHistory[i]);
 
@@ -191,4 +191,6 @@ $(document).ready(function () {
     function resetForecast() {
         $('.forecastRow').html('');
     }
+
+    console.log(storageArray);
 });
