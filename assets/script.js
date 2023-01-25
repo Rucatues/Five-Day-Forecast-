@@ -19,7 +19,8 @@ $(document).ready(function () {
     $(document).keypress(function (event) {
         if (event.which == '13') {
             let userInput = $('#input').val();
-            $('#currentDay').text(dayjs().format('MMMM D, YYYY'))
+            $('#currentDay').text(dayjs().format('MMMM D, YYYY'));
+            resetForecast();
             getAPI(userInput);
             getCoordinates(userInput);
 
@@ -187,4 +188,7 @@ $(document).ready(function () {
         }
     };
 
+    function resetForecast() {
+        $('.forecastRow').html('');
+    }
 });
