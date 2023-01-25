@@ -60,7 +60,7 @@ $(document).ready(function () {
 
     //API call to use user's input of city name to get latitude and longitude 
     function getCoordinates(cityName) {
-        fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${apiKey}&units=imperial`)
+        fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${apiKey}&units=imperial`)
             .then(function (response) {
                 return response.json();
             })
@@ -71,7 +71,7 @@ $(document).ready(function () {
     };
 
     function getFiveDayForecast(lat, lon) {
-        fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`)
+        fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`)
             .then(function (response) {
                 return response.json();
             })
