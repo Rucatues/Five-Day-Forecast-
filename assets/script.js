@@ -4,11 +4,15 @@ $(document).ready(function () {
 
     let apiKey = "f47243749ce7ae2a156aab05280e5983";
 
-    let searchHistory = []
-    let storageArray = JSON.parse(localStorage.getItem('city'))
+    let searchHistory = [];
+    let parsedItem = localStorage.getItem('city')
+    let storageArray = JSON.parse(parsedItem)
     if (searchHistory !== null) {
         searchHistory = storageArray;
     }
+
+    console.log(parsedItem);
+    console.log(storageArray);
 
 
     // this is what happens when you press enter on the page
@@ -112,7 +116,7 @@ $(document).ready(function () {
             console.log(date)
             let newDate = new Date(date);
             let newestDate = dayjs(newDate).format('MMM D, YYYY');
-            cardHeader.innerHTML = newestDate;
+            cardHeader.textContent = newestDate;
 
             console.log(data2[i].weather[0].icon)
             let iconURL = 'http://openweathermap.org/img/wn/' + data2[i].weather[0].icon + '@2x.png'
@@ -138,14 +142,30 @@ $(document).ready(function () {
         const userObj = {
             city: userCity
         }
-        searchHistory.push(userObj);
-        console.log(searchHistory);
-        localStorage.setItem('city', JSON.stringify(searchHistory))
-        displayResults(data);
+        if (!searchHistory) {
+            console.log(searchHistory);
+            searchHistory = [];
+            searchHistory.push(userObj);
+            localStorage.setItem('city', JSON.stringify(searchHistory))
+        } else {
+            for (i = 0; i < searchHistory.length; i++) {
+                if (searchHistory[i].city == userCity) {
+                    return;
+                }
+                else {
+                    console.log('working loop')
+                    console.log(searchHistory);
+                    searchHistory.push(userObj);
+                    localStorage.setItem('city', JSON.stringify(searchHistory));
+                    displayResults(data);
+                }
+
+            }
+        }
     }
 
     function displayResults(data) {
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < searchHistory.length; i++) {
             console.log(searchHistory[i]);
 
             let popupMain = document.getElementById('popupMain')
@@ -163,13 +183,8 @@ $(document).ready(function () {
 
             let listHeader = document.createElement('h3');
             listColumn.appendChild(listHeader);
-            listHeader.innerHTML = searchHistory[i]
+            listHeader.innerHTML = searchHistory[i].city;
         }
     };
 
-    // function clickOnHistory() {
-    //     $('.additionToList').click(function() {
-    //         getAPI()
-    //     })
-    // }
 });
