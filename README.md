@@ -1,6 +1,6 @@
 # Five Day Forecast
 
-[Here](link to coding quiz) is the link to the website. 
+[Here](https://rucatues.github.io/Five-Day-Forecast-/) is the link to the website. 
 
 ## Description
 
