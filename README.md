@@ -10,10 +10,14 @@ Using the Open Weather API, this app displays weather data about a city of your 
 
 ## Screenshot
 
-![Screenshot of page](relative path here)
+![Screenshot of page](./assets/images/ScreencaptureWeather.png)
 
 ## License 
 MIT License
+
+## Known Bugs
+
+When searching for >2 cities, the recent search section gets a littie funky and is duplicating results. 
 
 ## Credits
 CSS for the cloud was inspired by a tutorial from Fernando Castro. https://codepen.io/fershocastro/pen/dVBgxQ

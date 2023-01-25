@@ -28,6 +28,7 @@ $(document).ready(function () {
         }
     });
 
+    //calling the first API with user input of city name
     function getAPI(cityName) {
 
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=imperial`)
@@ -56,6 +57,8 @@ $(document).ready(function () {
                 }
             })
     };
+
+    //API call to use user's input of city name to get latitude and longitude 
     function getCoordinates(cityName) {
         fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${apiKey}&units=imperial`)
             .then(function (response) {
@@ -78,11 +81,11 @@ $(document).ready(function () {
             });
     };
 
+    //this function creates each card for the 5 day forecast
     function displayForecastData(data2) {
         for (let i = 4; i < data2.length; i = i + 8) {
             console.log(data2[i]);
 
-            // creating each card in the loop and appending
             let cardCol = document.createElement("div")
             cardCol.classList.add('forecast', 'col-2');
             document.querySelector('.forecastRow').appendChild(cardCol);
@@ -138,14 +141,14 @@ $(document).ready(function () {
 
         }
     }
-
+    //creates an object with the city name and pushes it into an array called Search History, which we then set in local storage. 
     function setLocalStorage(data) {
         let userCity = $('#input').val();
         const userObj = {
             city: userCity
         }
 
-        if (!searchHistory) {
+        if (searchHistory == null) {
             searchHistory = [];
             searchHistory.push(userObj);
             localStorage.setItem('city', JSON.stringify(searchHistory));
@@ -153,12 +156,13 @@ $(document).ready(function () {
             for (i = 0; i < searchHistory.length; i++) {
                 if (searchHistory[i].city == userCity) {
                     console.log('City already here');
+                    console.log(searchHistory[i].city)
                 }
                 else {
                     console.log('working loop')
                     console.log(searchHistory);
-                    searchHistory.push(userObj);
                     localStorage.setItem('city', JSON.stringify(searchHistory));
+                    searchHistory.push(userObj);
                     displayResults();
                 }
             }
