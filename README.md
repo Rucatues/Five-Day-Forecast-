@@ -15,9 +15,11 @@ Using the Open Weather API, this app displays weather data about a city of your 
 ## License 
 MIT License
 
-## Known Bugs
+## Known Bugs/Future plans
 
 When searching for >2 cities, the recent search section gets a littie funky and is duplicating results. 
+
+Plans to make site mobile-responsive in the future. 
 
 ## Credits
 CSS for the cloud was inspired by a tutorial from Fernando Castro. https://codepen.io/fershocastro/pen/dVBgxQ
