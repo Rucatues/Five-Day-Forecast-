@@ -168,10 +168,9 @@ $(document).ready(function () {
             }
         }
     }
-
+    //displays results in search history section 
     function displayResults() {
         for (let i = 0; i < searchHistory.length; i++) {
-            console.log(searchHistory[i]);
 
             let popupMain = document.getElementById('popupMain')
             let listDiv = document.createElement('div');
@@ -193,6 +192,7 @@ $(document).ready(function () {
         }
     };
 
+    //resets html to an empty string in forecast row so that it doesn't keep appending upon itself
     function resetForecast() {
         $('.forecastRow').html('');
     }
@@ -202,6 +202,7 @@ $(document).ready(function () {
         resetForecast();
         getAPI(this.innerHTML);
         getCoordinates(this.innerHTML);
+        userInput.innerHTML = '';
     }
 
 });
