@@ -5,15 +5,15 @@ $(document).ready(function () {
     let apiKey = "f47243749ce7ae2a156aab05280e5983";
 
     let searchHistory = [];
-    let parsedItem = localStorage.getItem('city')
-    let storageArray = JSON.parse(parsedItem)
-    if (searchHistory !== null) {
-        searchHistory = storageArray;
-    }
+    // let parsedItem = localStorage.getItem('city')
+    // let storageArray = JSON.parse(parsedItem)
+    // if (searchHistory !== null) {
+    //     searchHistory = storageArray;
+    // }
 
-    console.log(parsedItem);
-    console.log(searchHistory)
-    console.log(storageArray);
+    // console.log(parsedItem);
+    // console.log(searchHistory)
+    // console.log(storageArray);
 
 
     // this is what happens when you press enter on the page
@@ -24,7 +24,6 @@ $(document).ready(function () {
             resetForecast();
             getAPI(userInput);
             getCoordinates(userInput);
-
         }
     });
 
@@ -52,7 +51,6 @@ $(document).ready(function () {
                     $('.currentContainer').removeClass('hide');
                     $('.forecastRow').removeClass('hide');
                     $('.popup').removeClass('hide');
-
                     setLocalStorage();
                 }
             })
@@ -142,40 +140,53 @@ $(document).ready(function () {
         }
     }
     //creates an object with the city name and pushes it into an array called Search History, which we then set in local storage. 
-    function setLocalStorage(data) {
+    function setLocalStorage() {
         let userCity = $('#input').val();
         let userObj = {
             city: userCity
-        }
+        };
+        searchHistory.push(userObj);
+        console.log(userObj);
+        localStorage.setItem('city', JSON.stringify(searchHistory));
+        console.log(userObj);
+        displayResults(searchHistory);
+        // if (searchHistory == null) {
+        //     searchHistory = [];
+        //     searchHistory.push(userObj);
+        //     localStorage.setItem('city', JSON.stringify(searchHistory));
+        //     console.log(searchHistory);
+        // } else {
+        //     console.log(searchHistory);
+        //     for (i = 0; i < searchHistory.length; i++) {
+        //         if (searchHistory[i].city == userCity) {
+        //             console.log('City already here');
+        //             displayResults();
 
-        if (searchHistory == null) {
-            searchHistory = [];
-            searchHistory.push(userObj);
-            localStorage.setItem('city', JSON.stringify(searchHistory));
+        //         }
+        //         else {
+        //             localStorage.setItem('city', JSON.stringify(searchHistory));
+        //             // searchHistory.push(userObj);
 
-        } else {
-            for (i = 0; i < searchHistory.length; i++) {
-                if (searchHistory[i].city == userCity) {
-                    console.log('City already here');
-                    displayResults();
-
-                }
-                else {
-                    localStorage.setItem('city', JSON.stringify(searchHistory));
-                    searchHistory.push(userObj);
-
-                }
-            }
-        }
+        //         }
+        //     }
+        // }
     }
     //displays results in search history section 
-    function displayResults() {
-        for (let i = 0; i < searchHistory.length; i++) {
+    function displayResults(array) {
+        let popUpMain = document.getElementById('popupMain');
+        popUpMain.classList.remove('hide');
+        popUpMain.innerHTML = '';
+        let mainHeader = document.createElement('h3');
+        mainHeader.textContent = 'Recent Searches:';
+        mainHeader.classList.add('col-4', 'mb-4', 'recentSearchList');
+        mainHeader.setAttribute('id', 'recentSearchHeader');
+        popUpMain.appendChild(mainHeader);
+        console.log(popUpMain);
+        for (let i = 0; i < array.length; i++) {
 
-            let popupMain = document.getElementById('popupMain')
             let listDiv = document.createElement('div');
             listDiv.classList.add('container', 'popup')
-            popupMain.appendChild(listDiv);
+            popUpMain.appendChild(listDiv);
 
             let listRow = document.createElement('div');
             listRow.classList.add('row');
@@ -192,6 +203,14 @@ $(document).ready(function () {
         }
     };
 
+    function getInfoFromLocalStorage() {
+        let localStorageArray = JSON.parse(localStorage.getItem('city'));
+        if (localStorageArray !== null) {
+            searchHistory = localStorageArray;
+        }
+    }
+
+    getInfoFromLocalStorage();
     //resets html to an empty string in forecast row so that it doesn't keep appending upon itself
     function resetForecast() {
         $('.forecastRow').html('');
